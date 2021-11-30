@@ -1,7 +1,7 @@
 require "date"
 
 class Item
-  attr_accessor :publish_date
+  attr_accessor :archived, :publish_date
   
   
     def initialize(genre, author, label, publish_date, archived = false)
@@ -9,6 +9,7 @@ class Item
         @author = author
         @label = label
         @publish_date = publish_date
+        @archived = archived
     end
 
    def can_be_archived?
