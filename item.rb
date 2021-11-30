@@ -17,4 +17,7 @@ class Item
     d > publish_date.next_year(10)
    end
 
+   def move_to_archive?  
+   end
+
 end
