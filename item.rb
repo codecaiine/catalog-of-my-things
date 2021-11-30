@@ -1,9 +1,11 @@
 require 'date'
 
 class Item
+  DEFAULT_BOOL = false
+
   attr_accessor :archived, :publish_date
 
-  def initialize(_genre, author, label, publish_date, archived = false)
+  def initialize(_genre, author, label, publish_date, archived = DEFAULT_BOOL)
     @id = Random.rand(1..1000)
     @author = author
     @label = label
