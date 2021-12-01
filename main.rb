@@ -4,7 +4,7 @@ class Main
   def initialize
     @main = 0
     @book = []
-    @music_album =[]
+    @music_album = []
     @movie = []
     @game = []
 
@@ -29,13 +29,14 @@ class Main
     puts '13 -> Exit'
   end
 
+  # rubocop:disable Metrics
   def select_option
     case @main
     when 1
       display_books
     when 2
       display_music_albums
-    when 3 
+    when 3
       display_movies
     when 4
       display_games
@@ -55,21 +56,23 @@ class Main
       user_movie_input
     when 12
       user_game_input
-    else 13
+    else
       if @main != 13
         puts 'Invalid input, please try again'
         puts
       end
     end
   end
+  # rubocop:enable Metrics
 
   def main
-  until @main == 13
-  show_options
-  @main = gets.chomp.to_i
+    until @main == 13
+      show_options
+      @main = gets.chomp.to_i
+    end
+    puts 'Exiting session'
+    puts 'Thank you for using the Catalog Of My Things App'
   end
-  puts 'Exiting session'
-  puts 'Thank you for using the Catalog Of My Things App'
 end
 
 main
