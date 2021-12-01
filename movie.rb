@@ -8,4 +8,8 @@ class Movie
         @silent = silent
     end
     
+    def can_be_archived?
+        super || @silent
+    end
+    
 end
