@@ -8,5 +8,11 @@ class Source
     end
 
     def add_item(item)
+        if item.instance_of?(Item)
+          @items << item
+          item.add_source(self)
+        else
+          'Please insert a item here'
+        end
     end
 end
