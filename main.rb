@@ -1,7 +1,8 @@
 require './app'
-def main
-  catalog_of_my_things = App.new
-  catalog_of_my_things.welcome_message
+
+class Main
+  def app; end
 end
 
-main
+main = Main.new
+main.app
