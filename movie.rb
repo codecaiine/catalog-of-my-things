@@ -1,3 +1,5 @@
+require_relative 'item'
+
 class Movie
     attr_reader :publish_date, :silent
     
@@ -5,4 +7,5 @@ class Movie
         super(publish_date)
         @silent = silent
     end
+    
 end
