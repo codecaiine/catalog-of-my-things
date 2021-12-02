@@ -1,14 +1,14 @@
+require 'json'
 class App
   def initialize
-    @main = 0
-    @book = []
-    @music_album = []
-    @movie = []
-    @game = []
-    @genre = []
-    @source = []
-    @label = []
-    @author = []
+    @books = []
+    @music_albums = []
+    @movies = []
+    @games = []
+    @genres = []
+    @sources = []
+    @labels = []
+    @authors = []
     puts 'Welcome to Catalog My Things App!'
     puts
   end
@@ -64,14 +64,14 @@ class App
   # rubocop:enable Metrics
 
   def save_files
-    save_books
-    save_games
-    save_movies
-    save_music_albums
-    save_sources
-    save_authors
-    save_labels
-    save_genres
+    File.open('books.json', 'w') { |file| file.write(@books.to_json) }
+    File.open('games.json', 'w') { |file| file.write(@games.to_json) }
+    File.open('movies.json', 'w') { |file| file.write(@movies.to_json) }
+    File.open('music_albums.json', 'w') { |file| file.write(@music_albums.to_json) }
+    File.open('sources.json', 'w') { |file| file.write(@sources.to_json) }
+    File.open('authors.json', 'w') { |file| file.write(@authors.to_json) }
+    File.open('labels.json', 'w') { |file| file.write(@labels.to_json) }
+    File.open('genres.json', 'w') { |file| file.write(@genres.to_json) }
   end
 
   def open_files
