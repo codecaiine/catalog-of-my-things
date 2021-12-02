@@ -21,7 +21,7 @@ describe Source do
     end
 
     it 'Fails if the parameter is not an Item instance' do
-      expect(@source.add_item(1)).to eq 'Please insert a proper item here'
+      expect(@source.add_item(1)).to eq 'Please insert a item here'
     end
 
     it 'Add an item to its item list if an item instance is passed' do
