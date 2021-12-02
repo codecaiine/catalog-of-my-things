@@ -7,7 +7,10 @@ class Main
     @music_album = []
     @movie = []
     @game = []
-
+    @genre = []
+    @source = []
+    @label = []
+    @author = []
     puts 'Welcome to Catalog My Things App!'
     puts
   end
@@ -22,11 +25,19 @@ class Main
     puts '6 -> List all labels'
     puts '7 -> List all authors'
     puts '8 -> List all sources'
-    puts '9 -> Add a book'
-    puts '10 -> Add a music album'
-    puts '11 -> Add a movie'
-    puts '12 -> Add a game'
-    puts '13 -> Exit'
+    puts '9 -> Create a book'
+    puts '10 -> Create a music album'
+    puts '11 -> Create a movie'
+    puts '12 -> Create a game'
+    puts '12 -> Create a genre'
+    puts '13 -> Create a source'
+    puts '14 -> Create a label'
+    puts '15 -> Create an author'
+    puts '16 -> Add a movie to a Source'
+    puts '17 -> Add a music album to a genre'
+    puts '18 -> Add a game to a label'
+    puts '19 -> Add a book to a Author'
+    puts '20 -> Exit'
   end
 
   # rubocop:disable Metrics
