@@ -11,5 +11,4 @@ class Source
     @items.push(item) unless @items.include?(item)
     item.add_source(self)
   end
-
 end

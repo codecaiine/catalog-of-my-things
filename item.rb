@@ -16,11 +16,11 @@ class Item
   end
 
   def add_genre(genre)
-    @genre = genre 
+    @genre = genre
   end
 
   def add_author(author)
-    @author = author 
+    @author = author
   end
 
   def add_source(source)
@@ -31,9 +31,10 @@ class Item
     @label = label
   end
 
-  private def can_be_archived?
+  private
+
+  def can_be_archived?
     d = Date.today
     d > publish_date.next_year(10)
   end
-
 end

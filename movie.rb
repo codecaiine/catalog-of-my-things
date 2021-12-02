@@ -1,7 +1,6 @@
 require_relative './item'
 
 class Movie < Item
-  
   attr_accessor :silet
 
   def initialize(publish_date, silet)
@@ -10,6 +9,7 @@ class Movie < Item
   end
 
   private
+
   def can_be_archived?
     super() || @silet
   end
