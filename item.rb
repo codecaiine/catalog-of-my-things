@@ -1,24 +1,40 @@
 require 'date'
+require './genre'
 
 class Item
   DEFAULT_BOOL = false
 
-  attr_accessor :archived, :publish_date
+  attr_accessor :publish_date, :genre, :author, :source, :label
 
-  def initialize(_genre, author, label, publish_date, archived = DEFAULT_BOOL)
+  def initialize(publish_date)
     @id = Random.rand(1..1000)
-    @author = author
-    @label = label
-    @publish_date = publish_date
-    @archived = archived
-  end
-
-  def can_be_archived?
-    d = Date.today
-    d > publish_date.next_year(10)
+    @publish_date = Date.parse(publish_date)
   end
 
   def move_to_archive
     @archived = can_be_archived?
+  end
+
+  def add_genre(genre)
+    @genre = genre
+  end
+
+  def add_author(author)
+    @author = author
+  end
+
+  def add_source(source)
+    @source = source
+  end
+
+  def add_label(label)
+    @label = label
+  end
+
+  private
+
+  def can_be_archived?
+    d = Date.today
+    d > publish_date.next_year(10)
   end
 end

@@ -1,11 +1,16 @@
 require_relative './item'
 
-class Movie < item
-  attr_accessor :publish_date, :on_spotify
-  attr_reader :archived
+class Movie < Item
+  attr_accessor :silet
 
-  def intialize(publish_date, archived, on_spotify: false)
-    super(publish_date, archived)
-    @on_spotify = on_spotify
+  def initialize(publish_date, silet)
+    super(publish_date)
+    @silet = silet
+  end
+
+  private
+
+  def can_be_archived?
+    super() || @silet
   end
 end
