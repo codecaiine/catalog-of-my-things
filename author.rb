@@ -12,4 +12,8 @@ class Author
     @items.push(item) unless @items.include?(item)
     item.add_author(self)
   end
+
+  def show_items
+    @items
+  end
 end
