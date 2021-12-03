@@ -27,6 +27,5 @@ describe Book do
     it 'Check the can_be_archived? method of the Book class' do
       expect(@new_book.send(:can_be_archived?)).to be true
     end
-
   end
 end
