@@ -3,6 +3,7 @@ require './genre'
 
 class Item
   attr_accessor :publish_date, :genre, :author, :source, :label
+  attr_writer :id
 
   def initialize(publish_date)
     @id = Random.rand(1..1000)
