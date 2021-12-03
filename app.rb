@@ -115,6 +115,18 @@ class App
     end
   end
 
+  def display_genres
+    puts
+    if @genres.length.zero?
+      puts 'Sorry! There is no music genre registered!'.upcase
+    else
+      puts "List of all genres: \n"
+      @genres.each_with_index do |genre, index|
+        puts "#{index} - Genre: #{genre.name}"
+      end
+    end
+  end
+
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('games.json', 'w') { |file| file.write(@games.to_json) }
