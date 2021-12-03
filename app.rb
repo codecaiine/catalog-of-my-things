@@ -63,6 +63,17 @@ class App
   end
   # rubocop:enable Metrics
 
+  def display_music_albums
+    if @music_albums.length.zero?
+      puts 'Sorry! There is no music album registered!'.upcase
+    else
+      puts 'List of all Music albums: \n'
+      @music_albums.each_with_index do |album, index|
+        puts '#{index} - Album: #{album.name}, Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}'
+      end
+    end
+  end
+
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('games.json', 'w') { |file| file.write(@games.to_json) }
