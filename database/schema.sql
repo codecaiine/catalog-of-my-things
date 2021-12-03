@@ -1,11 +1,5 @@
 CREATE DATABASE ruby_capstone;
 
-CREATE TABLE label(
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(30),
-  color VARCHAR(20),
-);
-
 CREATE TABLE item(
   id SERIAL PRIMARY KEY,
   publish_date date,
@@ -59,3 +53,16 @@ CREATE TABLE book(
       REFERENCES label(id)
       ON DELETE CASCADE
 );
+
+CREATE TABLE label(
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(30),
+  color VARCHAR(20),
+);
+
+CREATE TABLE music_albums(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  on_spotify BOOLEAN,
+  FOREIGN KEY(id) REFERENCES item(id)
+);
+
