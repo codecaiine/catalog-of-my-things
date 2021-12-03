@@ -97,6 +97,24 @@ class App
     puts
   end
 
+  def open_music_albums
+    if File.exist?('music_albums.json')
+      JSON.parse(File.read('music_albums.json')).map do |music|
+        music_name = music['name']
+        publish_date = music['publish_date']
+        archived = music['archived'] || nil
+        on_spotify = music['on_spotify']
+        new_music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived, on_spotify: on_spotify)
+        if archived != nil
+          new_music.move_to_archive 
+        end
+        @music_albums << new_music
+      end
+    else
+      []
+    end
+  end
+
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('games.json', 'w') { |file| file.write(@games.to_json) }
