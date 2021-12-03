@@ -1,6 +1,7 @@
 require 'json'
 require './game'
 require './item'
+require './author'
 
 class App
   def initialize
@@ -127,10 +128,25 @@ class App
     end
   end
 
+  def open_authors
+    if File.exist?('authors.json')
+      JSON.parse(File.read('authors.json')).map do |author|
+        author_object = create_author_object(author)
+        @authors << author_object
+      end
+    end
+  end
+
   # rubocop:enable Style/GuardClause
   def create_game_object(game)
     new_object = Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
     new_object.id = game['id'].to_i
+    new_object
+  end
+
+  def create_author_object(author)
+    new_object = Author.new(author['first_name'], author['last_name'])
+    new_object.id = author['id'].to_i
     new_object
   end
 end
