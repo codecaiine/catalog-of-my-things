@@ -2,8 +2,6 @@ require 'date'
 require './genre'
 
 class Item
-  DEFAULT_BOOL = false
-
   attr_accessor :publish_date, :genre, :author, :source, :label
   attr_writer :id
 
