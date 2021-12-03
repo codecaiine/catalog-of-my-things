@@ -74,6 +74,29 @@ class App
     end
   end
 
+  def create_music_album
+    puts
+
+    print 'Music album name: '
+    music_name = gets.chomp
+
+    print 'Published date: '
+    publish_date = gets.chomp
+
+    print 'On spotify? [Y/N]: '
+    on_spotify = gets.chomp != 'n'
+
+    music = MusicAlbum.new(publish_date, name, on_spotify)
+    genre = handle_genre
+    genre.add_item(music)
+    @music_albums << music
+    @genre << genre unless @genre.include?(genre)
+
+    puts
+    puts 'Music album is created succussfully!'
+    puts
+  end
+
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('games.json', 'w') { |file| file.write(@games.to_json) }
