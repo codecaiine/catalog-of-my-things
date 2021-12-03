@@ -1,0 +1,1 @@
+CREATE DATABASE ruby_capstone;
