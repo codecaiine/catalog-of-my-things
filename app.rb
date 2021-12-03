@@ -2,6 +2,8 @@ require 'json'
 require './game'
 require './item'
 require './author'
+require_relative '../music_album'
+require_relative '../genre'
 
 class App
   def initialize
@@ -16,7 +18,6 @@ class App
     puts 'Welcome to Catalog My Things App!'
     puts
   end
-
   # rubocop:disable Metrics
   def choose_option(input)
     case input
@@ -65,6 +66,7 @@ class App
       puts
     end
   end
+  # rubocop:enable Metrics
 
   def display_games
     games.each do |game|
@@ -74,6 +76,29 @@ class App
 
   def display_authors
     authors.each { |author| puts "first_name #{author.first_name} last_name: #{author.last_name}" }
+  end
+
+  def display_music_albums
+    if @music_albums.length.zero?
+      puts 'Sorry! There is no music album registered!'.upcase
+    else
+      puts 'List of all Music albums: \n'
+      @music_albums.each_with_index do |_album, _index|
+        puts "#{index} - Album: #{album.name}, Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}"
+      end
+    end
+  end
+
+  def display_genres
+    puts
+    if @genres.length.zero?
+      puts 'Sorry! There is no music genre registered!'.upcase
+    else
+      puts "List of all genres: \n"
+      @genres.each_with_index do |genre, index|
+        puts "#{index} - Genre: #{genre.name}"
+      end
+    end
   end
 
   def create_game
@@ -94,7 +119,56 @@ class App
     last_name = gets.chomp
     @authors << Author.new(first_name, last_name)
   end
-  # rubocop:enable Metrics
+
+  def create_music_album
+    puts
+
+    print 'Music album name: '
+    music_name = gets.chomp
+
+    print 'Published date: '
+    publish_date = gets.chomp
+
+    print 'On spotify? [Y/N]: '
+    on_spotify = gets.chomp != 'n'
+
+    music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived, on_spotify: on_spotify)
+    genre = handle_genre
+    genre.add_item(music)
+    @music_albums << music
+    @genre << genre unless @genre.include?(genre)
+
+    puts
+    puts 'Music album is created succussfully!'
+    puts
+  end
+
+  def create_genre
+    print 'Genre name: '
+    genre = gets.chomp
+    @genres << Genre.new(genre)
+    puts 'Genre has been added successfully'
+  end
+
+  def add_music_genre
+    if @genres.any?
+      print 'Enter 1 to create a new genre or 2 to select an existing one : '
+      option = gets.chomp.upcase
+      case option
+      when '1'
+        create_genre
+      when '2'
+        puts 'Select a genre from the list by index'
+        display_genres
+        option = gets.chomp
+        @genres[option.to_i]
+      else
+        print 'Invalid entry'
+      end
+    else
+      create_genre
+    end
+  end
 
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
@@ -134,6 +208,35 @@ class App
         author_object = create_author_object(author)
         @authors << author_object
       end
+    end
+  end
+  
+  def open_genres
+    if File.exist?('genres.json')
+      JSON.parse(File.read('genre.json')).map do |genre|
+        name = genre['name']
+        new_genre = Genre.new(name)
+        @genre << new_genre
+      end
+    else
+      []
+    end
+  end
+
+  def open_music_albums
+    if File.exist?('music_albums.json')
+      JSON.parse(File.read('music_albums.json')).map do |music|
+        music_name = music['name']
+        publish_date = music['publish_date']
+        archived = music['archived'] || nil
+        on_spotify = music['on_spotify']
+        new_music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived,
+                                   on_spotify: on_spotify)
+        new_music.move_to_archive unless archived.nil?
+        @music_albums << new_music
+      end
+    else
+      []
     end
   end
 
