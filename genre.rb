@@ -11,4 +11,8 @@ class Genre
     @items.push(item) unless @items.include?(item)
     item.add_genre(self)
   end
+
+  def show_items
+    @items
+  end
 end
