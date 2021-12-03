@@ -13,5 +13,4 @@ class Label
     @items << item unless @items.include?(item)
     item.add_genre(self)
   end
-  
 end
