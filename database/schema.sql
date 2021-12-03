@@ -72,4 +72,11 @@ CREATE TABLE genres(
   PRIMARY KEY(id)
 );
 
+CREATE TABLE games(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  multiplayer BOOLEAN,
+  last_played_at DATE,
+  FOREIGN KEY(id) REFERENCES item(id)
+);
+
 
