@@ -1,4 +1,9 @@
 require 'json'
+require_relative '../music_album'
+require_relative '../genre'
+
+# rubocop:disable Metrics
+
 class App
   def initialize
     @books = []
@@ -13,7 +18,6 @@ class App
     puts
   end
 
-  # rubocop:disable Metrics
   def choose_option(input)
     case input
     when 1
@@ -61,15 +65,14 @@ class App
       puts
     end
   end
-  # rubocop:enable Metrics
 
   def display_music_albums
     if @music_albums.length.zero?
       puts 'Sorry! There is no music album registered!'.upcase
     else
       puts 'List of all Music albums: \n'
-      @music_albums.each_with_index do |album, index|
-        puts '#{index} - Album: #{album.name}, Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}'
+      @music_albums.each_with_index do |_album, _index|
+        puts "#{index} - Album: #{album.name}, Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}"
       end
     end
   end
@@ -86,7 +89,7 @@ class App
     print 'On spotify? [Y/N]: '
     on_spotify = gets.chomp != 'n'
 
-    music = MusicAlbum.new(publish_date, name, on_spotify)
+    music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived, on_spotify: on_spotify)
     genre = handle_genre
     genre.add_item(music)
     @music_albums << music
@@ -105,9 +108,7 @@ class App
         archived = music['archived'] || nil
         on_spotify = music['on_spotify']
         new_music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived, on_spotify: on_spotify)
-        if archived != nil
-          new_music.move_to_archive 
-        end
+        new_music.move_to_archive unless archived.nil?
         @music_albums << new_music
       end
     else
@@ -136,7 +137,7 @@ class App
 
   def add_music_genre
     if @genres.any?
-      print 'Enter '1' to create a new genre or '2' to select an existing one : '
+      print 'Enter 1 to create a new genre or 2 to select an existing one : '
       option = gets.chomp.upcase
       case option
       when '1'
@@ -188,3 +189,4 @@ class App
     open_genres
   end
 end
+# rubocop:enable Metrics
