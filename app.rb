@@ -64,6 +64,35 @@ class App
       puts
     end
   end
+
+  def display_games
+    games.each do |game|
+      puts "publish_date: #{game.publish_date} multiplayer: #{game.multiplayer} last_played_at: #{game.last_played_at}"
+    end
+  end
+
+  def display_authors
+    authors.each { |author| puts "first_name #{author.first_name} last_name: #{author.last_name}" }
+  end
+
+  def create_game
+    print 'publish_date:'
+    publish_date = gets.chomp
+    print 'multiplayer'
+    multiplayer = gets.chomp
+    print 'last_played_at'
+    last_played_at = gets.chomp
+    @games << Game.new(publish_date, multiplayer, last_played_at)
+    puts 'Game Created'
+  end
+
+  def create_author
+    print 'first_name:'
+    first_name = gets.chomp
+    print 'last_name'
+    last_name = gets.chomp
+    @authors << Author.new(first_name, last_name)
+  end
   # rubocop:enable Metrics
 
   def save_files
