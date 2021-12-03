@@ -154,6 +154,18 @@ class App
     end
   end
 
+  def open_genres
+    if File.exist?('genres.json')
+      JSON.parse(File.read('genre.json')).map do |genre|
+        name = genre['name']
+        new_genre = Genre.new(name)
+        @genre << new_genre
+      end
+    else
+      []
+    end
+  end
+
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('games.json', 'w') { |file| file.write(@games.to_json) }
