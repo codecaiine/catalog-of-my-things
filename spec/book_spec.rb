@@ -10,15 +10,15 @@ describe Book do
     expect(book).to be_an_instance_of(Book)
   end
 
-  it 'should return the publisher of the book object' do
+  it 'return publisher of the book object' do
     expect(book.publisher).to eq(publisher)
   end
 
-  it 'should return the cover_state of the book object' do
+  it 'return cover_state of the book object' do
     expect(book.cover_state).to eq(cover_state)
   end
 
-  it 'Test for can_be_archived? method' do
+  it 'can_be_archived? test' do
     expect(book.can_be_archived?).to eq(true)
   end
 end
