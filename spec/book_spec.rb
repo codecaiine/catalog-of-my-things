@@ -1,24 +1,32 @@
 require_relative '../book'
+require_relative '../item'
 
 describe Book do
-  publisher = 'Iron Man'
-  cover_state = 'good'
-  publish_date = 10
-  let(:book) { Book.new(publisher, cover_state, publish_date) }
+  context 'Testing Author Class' do
+    before(:all) do
+      @new_book = Book.new('yannick', 'good', '2021-11-11')
+      @new_item = Item.new('2020-10-10')
+    end
 
-  it 'instance of Book' do
-    expect(book).to be_an_instance_of(Book)
-  end
+    it 'new_book is an instance of Book' do
+      expect(@new_book).to be_instance_of(Book)
+    end
 
-  it 'return publisher of the book object' do
-    expect(book.publisher).to eq(publisher)
-  end
+    it 'The new_book object is an instance of  Item' do
+      expect(@new_book).to be_kind_of Item
+    end
 
-  it 'return cover_state of the book object' do
-    expect(book.cover_state).to eq(cover_state)
-  end
+    it 'Check the publisher of the book' do
+      expect(@new_book.publisher).to eql 'yannick'
+    end
 
-  it 'can_be_archived? test' do
-    expect(book.can_be_archived?).to eq(true)
+    it 'Check the cover_state of the book' do
+      expect(@new_book.cover_state).to eql 'good'
+    end
+
+    it 'Check the can_be_archived? method of the Book class' do
+      expect(@new_book.send(:can_be_archived?)).to be true
+    end
+
   end
 end
