@@ -127,6 +127,33 @@ class App
     end
   end
 
+  def create_genre
+    print 'Genre name: '
+    genre = gets.chomp
+    @genres << Genre.new(genre)
+    puts 'Genre has been added successfully'
+  end
+
+  def add_music_genre
+    if @genres.any?
+      print 'Enter '1' to create a new genre or '2' to select an existing one : '
+      option = gets.chomp.upcase
+      case option
+      when '1'
+        create_genre
+      when '2'
+        puts 'Select a genre from the list by index'
+        display_genres
+        option = gets.chomp
+        @genres[option.to_i]
+      else
+        print 'Invalid entry'
+      end
+    else
+      create_genre
+    end
+  end
+
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('games.json', 'w') { |file| file.write(@games.to_json) }
