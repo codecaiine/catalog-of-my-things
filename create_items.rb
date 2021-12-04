@@ -47,4 +47,34 @@ module CreateItems
     @genres << Genre.new(genre)
     puts 'Genre has been added successfully'
   end
+
+  def create_book
+  print 'Book title: '
+  book_title = gets.chomp
+
+  print 'Published date: '
+  publish_date = gets.chomp
+  
+  print 'Cover state: '
+  cover_state = gets.chomp
+
+  book = gets.chomp
+  @books << Book.new(book)
+  puts 'Book has been added successfully'
+  end
+
+  def create_movie
+    print 'Movie title: '
+    movie_title = gets.chomp
+  
+    print 'Published date: '
+    publish_date = gets.chomp
+    
+    print 'Silet: '
+    silet = gets.chomp
+  
+    movie = gets.chomp
+    @movies << Movie.new(movie)
+    puts 'Movie has been added successfully'
+    end
 end

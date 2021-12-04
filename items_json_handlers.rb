@@ -63,7 +63,7 @@ module JsonHandlers
   end
 
   def create_book_object(book)
-    new_object = Book.new(book['publish_date'], book['multiplayer'], book['last_played_at'])
+    new_object = Book.new(book['publish_date'], book['publisher'], book['cover_state'])
     new_object.id = book['id'].to_i
     new_object
   end
@@ -71,6 +71,12 @@ module JsonHandlers
   def create_movie_object(movie)
     new_object = Movie.new(movie['publish_date'], movie['silet'])
     new_object.id = movie['id'].to_i
+    new_object
+  end
+
+  def create_music_object(music_album)
+    new_object = MusicAlbum.new(music_album['publish_date'], music_album['on_spotify'])
+    new_object.id = music_album['id'].to_i
     new_object
   end
 end

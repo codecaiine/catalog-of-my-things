@@ -56,5 +56,11 @@ module AssociationsJsonHandlers
     new_object.id = label['id'].to_i
     new_object
   end
+
+  def create_genre_object(genre)
+    new_object = Genre.new(genre['name'])
+    new_object.id = genre['id'].to_i
+    new_object
+  end
   # rubocop:enable Style/GuardClause
 end
