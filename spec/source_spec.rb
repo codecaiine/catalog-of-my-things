@@ -4,7 +4,7 @@ require_relative '../source'
 describe Source do
   context 'Testing Source Class' do
     before(:all) do
-      @new_source = Source.new('Suit', 'Avocats')
+      @new_source = Source.new('Suit')
       @new_item = Item.new('2020-01-10')
     end
 

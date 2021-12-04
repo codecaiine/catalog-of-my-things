@@ -3,7 +3,7 @@ require_relative '../item'
 describe Movie do
   context 'Testing movie Class:' do
     before(:all) do
-      @new_movie = Movie.new('2010-2-2', 'yes', '2021-10-10')
+      @new_movie = Movie.new('2010-2-2', 'yes')
     end
 
     it 'The new_movie object is an instance of Movie' do
