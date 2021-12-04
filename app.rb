@@ -6,6 +6,7 @@ require './music_album'
 require './genre'
 require './create_items'
 require './display_items'
+require './json_handlers'
 
 class App
   include CreateItems
@@ -52,22 +53,6 @@ class App
       create_movie
     when 12
       create_game
-    when 13
-      create_genre
-    when 14
-      create_source
-    when 15
-      create_label
-    when 16
-      create_author
-    when 17
-      add_movie_source
-    when 18
-      add_music_genre
-    when 19
-      add_game_label
-    when 20
-      add_book_author
     else
       puts 'Invalid input, please try again'
       puts

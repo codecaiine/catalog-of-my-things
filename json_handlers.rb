@@ -22,6 +22,24 @@ module JsonHandlers
   end
 
   # rubocop:disable Style/GuardClause
+  def open_books
+    if File.exist?('books.json')
+      JSON.parse(File.read('books.json')).map do |book|
+        book_object = create_book_object(book)
+        @books << book_object
+      end
+    end
+  end
+
+  def open_movies
+    if File.exist?('movies.json')
+      JSON.parse(File.read('movies.json')).map do |movie|
+        movie_object = create_movie_object(movie)
+        @movies << movie_object
+      end
+    end
+  end
+
   def open_games
     if File.exist?('games.json')
       JSON.parse(File.read('games.json')).map do |game|
@@ -36,6 +54,24 @@ module JsonHandlers
       JSON.parse(File.read('authors.json')).map do |author|
         author_object = create_author_object(author)
         @authors << author_object
+      end
+    end
+  end
+
+  def open_sources
+    if File.exist?('sources.json')
+      JSON.parse(File.read('sources.json')).map do |source|
+        source_object = create_source_object(source)
+        @sources << source_object
+      end
+    end
+  end
+
+  def open_labels
+    if File.exist?('labels.json')
+      JSON.parse(File.read('labels.json')).map do |label|
+        label_object = create_label_object(label)
+        @labels << label_object
       end
     end
   end
@@ -79,6 +115,30 @@ module JsonHandlers
   def create_author_object(author)
     new_object = Author.new(author['first_name'], author['last_name'])
     new_object.id = author['id'].to_i
+    new_object
+  end
+
+  def create_book_object(book)
+    new_object = Book.new(book['publish_date'], book['multiplayer'], book['last_played_at'])
+    new_object.id = book['id'].to_i
+    new_object
+  end
+
+  def create_movie_object(movie)
+    new_object = Movie.new(movie['publish_date'], movie['silet'])
+    new_object.id = movie['id'].to_i
+    new_object
+  end
+
+  def create_source_object(source)
+    new_object = Source.new(source['name'])
+    new_object.id = movie['id'].to_i
+    new_object
+  end
+
+  def create_label_object(label)
+    new_object = Label.new(label['title'], label['color'])
+    new_object.id = label['id'].to_i
     new_object
   end
 end
