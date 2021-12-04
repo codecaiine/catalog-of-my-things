@@ -12,6 +12,7 @@ class Source
     item.add_source(self)
   end
 
-  @items
-
+  def show_items
+    @items
+  end
 end
