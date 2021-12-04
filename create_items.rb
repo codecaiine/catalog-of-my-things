@@ -100,6 +100,9 @@ module CreateItems
   end
 
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def create_associations(item)
     puts 'Do you want to add any association [y/n]:'
     input = gets.chomp != 'n'
@@ -163,6 +166,9 @@ module CreateItems
     end
   end
 end
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Style/GuardClause
 # rubocop:enable Metrics/ModuleLength
