@@ -1,1 +1,0 @@
-[{"json_class":"Source","id":323,"name":"new source","items":[{"json_class":"Book","id":154,"publisher":"Donard","publish_date":"2021-11-11","cover_state":"I do not know"}]},{"json_class":"Source","id":14,"name":"Hollywood","items":[{"json_class":"Movie","id":642,"publish_date":"2021-11-11","silet":"true"}]}]

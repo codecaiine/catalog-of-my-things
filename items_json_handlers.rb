@@ -41,7 +41,6 @@ module JsonHandlers
   def open_music_albums
     if File.exist?('music_albums.json')
       JSON.parse(File.read('music_albums.json')).map do |music|
-        music_name = music['name']
         publish_date = music['publish_date']
         archived = music['archived'] || nil
         on_spotify = music['on_spotify']

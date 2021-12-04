@@ -1,1 +1,0 @@
-[{"json_class":"Genre","id":917,"name":"new genre","items":[{"json_class":"Book","id":154,"publisher":"Donard","publish_date":"2021-11-11","cover_state":"I do not know"}]},{"json_class":"Genre","id":806,"name":"Hip Hop","items":[{"json_class":"MusicAlbum","id":146,"publish_date":"2021-11-11","on_spotify":true}]}]

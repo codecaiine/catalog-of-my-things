@@ -1,3 +1,5 @@
+# rubocop:disable Style/GuardClause
+# rubocop:disable Metrics/ModuleLength
 module CreateItems
   def create_game
     print 'publish_date:'
@@ -97,6 +99,7 @@ module CreateItems
     @sources << new_source
   end
 
+  # rubocop:disable Metrics/MethodLength
   def create_associations(item)
     puts 'Do you want to add any association [y/n]:'
     input = gets.chomp != 'n'
@@ -160,3 +163,6 @@ module CreateItems
     end
   end
 end
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Style/GuardClause
+# rubocop:enable Metrics/ModuleLength
