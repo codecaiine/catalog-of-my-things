@@ -8,3 +8,7 @@ describe Movie do
     it 'The new_movie object is an instance of Movie' do
         expect(@new_movie).to be_instance_of Movie
     end
+    it 'The new_movie object is an instance of (Inherted from) Item' do
+        expect(@new_movie).to be_kind_of Item
+    end
+    
