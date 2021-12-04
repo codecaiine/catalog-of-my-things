@@ -31,7 +31,7 @@ module DisplayAssociations
     else
       puts 'List of all Authors: \n'
       index = 0
-      authors.each do |author|
+      @authors.each do |author|
         puts "#{index}: Author: first_name: #{author.first_name} last_name: #{author.last_name}"
         index += 1
       end

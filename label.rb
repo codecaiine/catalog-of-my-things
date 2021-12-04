@@ -11,6 +11,6 @@ class Label
 
   def add_item(item)
     @items << item unless @items.include?(item)
-    item.add_genre(self)
+    item.add_label(self)
   end
 end
