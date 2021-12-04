@@ -9,6 +9,8 @@ Catalog of my things is a console app that will help you to keep record of diffe
 
 ## Introduction Video
 
+[Presentation video](https://drive.google.com/file/d/18mp9EJicu5cSn5DpQzy0F31ofAGc9Ok8/view)
+
 ## Built With
 
 - Ruby
