@@ -21,6 +21,8 @@ describe Source do
         expect(@new_source.show_items).to match_array([@new_item])
     end
   
-   
+    it 'The source of new_item should be new_source' do
+        expect(@new_item.source).to eql @new_source
+    end
   end
 end
