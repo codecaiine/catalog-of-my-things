@@ -10,6 +10,7 @@ module DisplayItems
         print "publish_date: #{game.publish_date} "
         print "multiplayer: #{game.multiplayer} "
         puts "last_played_at: #{game.last_played_at} "
+        display_more_details(game)
         index += 1
       end
     end
@@ -23,6 +24,7 @@ module DisplayItems
       index = 0
       @music_albums.each do |album|
         puts "#{index} - Album: Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}"
+        display_more_details(album)
         index += 1
       end
     end
@@ -38,6 +40,7 @@ module DisplayItems
         print "#{index} - movie: "
         print "publish_date: #{movie.publish_date} "
         puts "multiplayer: #{movie.silet} "
+        display_more_details(movie)
         index += 1
       end
     end
@@ -54,8 +57,16 @@ module DisplayItems
         print "publish_date: #{book.publish_date} "
         print "publisher: #{book.publisher} "
         puts "cover_state: #{book.cover_state} "
+        display_more_details(book)
         index += 1
       end
     end
+  end
+
+  def display_more_details(item)
+    puts "Genre: #{item.genre.name}" if item.genre
+    puts "Author: first name: #{item.author.first_name} last name: #{item.author.last_name}" if item.author
+    puts "Label : title: #{item.label.title} color: #{item.label.color}" if item.label
+    puts "Source: #{item.name.source}" if item.source
   end
 end
