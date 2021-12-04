@@ -6,6 +6,7 @@ Catalog of my things is a console app that will help you to keep record of diffe
 -  movies
 -  games
 
+![image](https://user-images.githubusercontent.com/74506933/144723907-b95aeee2-d423-4b34-b5e5-5f4f836a26d3.png)
 
 ## Introduction Video
 
