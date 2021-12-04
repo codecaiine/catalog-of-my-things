@@ -8,6 +8,7 @@ module CreateItems
     last_played_at = gets.chomp
     @games << Game.new(publish_date, multiplayer, last_played_at)
     puts 'Game Created'
+    create_associations(@games[-1])
   end
 
   def create_music_album
@@ -25,6 +26,7 @@ module CreateItems
     puts
     puts 'Music album is created succussfully!'
     puts
+    create_associations(@music_albums[-1])
   end
 
   def create_book
@@ -51,6 +53,7 @@ module CreateItems
 
     @movies << Movie.new(publish_date, silet)
     puts 'Movie has been added successfully'
+    create_associations(@movies[-1])
   end
 
   def create_genre(item = nil)

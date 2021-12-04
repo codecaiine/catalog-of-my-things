@@ -67,6 +67,6 @@ module DisplayItems
     puts "Genre: #{item.genre.name}" if item.genre
     puts "Author: first name: #{item.author.first_name} last name: #{item.author.last_name}" if item.author
     puts "Label : title: #{item.label.title} color: #{item.label.color}" if item.label
-    puts "Source: #{item.name.source}" if item.source
+    puts "Source: #{item.source.name}" if item.source
   end
 end

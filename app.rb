@@ -11,6 +11,8 @@ require './display_associations'
 require './associations_json_handlers'
 require './book'
 require './movie'
+require './label'
+require './source'
 class App
   include CreateItems
   include DisplayItems
