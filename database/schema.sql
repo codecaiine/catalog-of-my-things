@@ -92,6 +92,12 @@ CREATE TABLE sources(
   PRIMARY KEY(id)
 );
 
+CREATE TABLE movies(
+  id INT,
+  silet BOOLEAN,
+  FOREIGN KEY(id) REFERENCES item(id)
+);
+
 
 
 
