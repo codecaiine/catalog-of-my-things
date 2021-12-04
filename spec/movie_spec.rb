@@ -1,7 +1,10 @@
 require_relative '../movie'
 require_relative '../item'
-describe Game do
+describe Movie do
   context 'Testing Game Class:' do
     before(:all) do
-      @new_game = Game.new('2010-2-2', 'yes', '2021-10-10')
+      @new_movie = Movie.new('2010-2-2', 'yes', '2021-10-10')
+    end
+    it 'The new_movie object is an instance of Movie' do
+        expect(@new_movie).to be_instance_of Movie
     end
