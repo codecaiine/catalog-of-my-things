@@ -20,10 +20,10 @@ module AssociationsJsonHandlers
 
   def open_genres
     if File.exist?('genres.json')
-      JSON.parse(File.read('genre.json')).map do |genre|
+      JSON.parse(File.read('genres.json')).map do |genre|
         name = genre['name']
         new_genre = Genre.new(name)
-        @genre << new_genre
+        @genres << new_genre
       end
     else
       []
@@ -47,7 +47,7 @@ module AssociationsJsonHandlers
 
   def create_source_object(source)
     new_object = Source.new(source['name'])
-    new_object.id = movie['id'].to_i
+    new_object.id = source['id'].to_i
     new_object
   end
 

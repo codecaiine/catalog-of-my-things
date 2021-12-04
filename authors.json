@@ -1,1 +1,1 @@
-[]
+[{"json_class":"Author","first_name":"Donard","last_name":"Golaj","id":674,"items":[{"json_class":"Book","id":154,"publisher":"Donard","publish_date":"2021-11-11","cover_state":"I do not know"}]},{"json_class":"Author","first_name":"Ahmad","last_name":"Azia","id":116,"items":[{"json_class":"Game","id":319,"multiplayer":" true","publish_date":"2021-11-11","last_played_at":"2021-04-10"}]}]

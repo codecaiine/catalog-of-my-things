@@ -45,8 +45,7 @@ module JsonHandlers
         publish_date = music['publish_date']
         archived = music['archived'] || nil
         on_spotify = music['on_spotify']
-        new_music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived,
-                                   on_spotify: on_spotify)
+        new_music = MusicAlbum.new(publish_date, on_spotify)
         new_music.move_to_archive unless archived.nil?
         @music_albums << new_music
       end
