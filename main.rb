@@ -1,6 +1,5 @@
 require './app'
 
-# rubocop:disable Metrics
 def show_options
   puts 'Please choose an option by entering a number:'
   puts '1 -> List all books'
@@ -15,22 +14,13 @@ def show_options
   puts '10 -> Create a music album'
   puts '11 -> Create a movie'
   puts '12 -> Create a game'
-  puts '13 -> Create a genre'
-  puts '14 -> Create a source'
-  puts '15 -> Create a label'
-  puts '16 -> Create an author'
-  puts '17 -> Add a movie to a Source'
-  puts '18 -> Add a music album to a genre'
-  puts '19 -> Add a game to a label'
-  puts '20 -> Add a book to a Author'
-  puts '21 -> Exit'
+  puts '13 -> Exit'
 end
-# rubocop:enable Metrics
 
 def print_options
-  puts 'Please choose an option by entering a number:'
+  show_options
   input = gets.chomp.to_i
-  if input == 21
+  if input == 13
     save_quit
   else
     @catalog_of_things.choose_option(input)

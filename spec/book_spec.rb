@@ -4,7 +4,7 @@ require_relative '../item'
 describe Book do
   context 'Testing Author Class' do
     before(:all) do
-      @new_book = Book.new('yannick', 'good', '2021-11-11')
+      @new_book = Book.new('2021-11-11', 'yannick', 'good')
       @new_item = Item.new('2020-10-10')
     end
 
