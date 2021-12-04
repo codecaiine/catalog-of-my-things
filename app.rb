@@ -9,6 +9,8 @@ require './display_items'
 require './items_json_handlers'
 require './display_associations'
 require './associations_json_handlers'
+require './book'
+require './movie'
 class App
   include CreateItems
   include DisplayItems

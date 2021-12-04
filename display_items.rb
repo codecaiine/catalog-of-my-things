@@ -22,7 +22,7 @@ module DisplayItems
       puts 'List of all Music albums: \n'
       index = 0
       @music_albums.each do |album|
-        puts "#{index} - Album: #{album.name}, Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}"
+        puts "#{index} - Album: Publish date: #{album.publish_date}, On Spotify: #{album.on_spotify}"
         index += 1
       end
     end

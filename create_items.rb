@@ -21,20 +21,14 @@ module CreateItems
   def create_music_album
     puts
 
-    print 'Music album name: '
-    music_name = gets.chomp
-
     print 'Published date: '
     publish_date = gets.chomp
 
     print 'On spotify? [Y/N]: '
     on_spotify = gets.chomp != 'n'
 
-    music = MusicAlbum.new(publish_date: publish_date, name: music_name, archived: archived, on_spotify: on_spotify)
-    genre = handle_genre
-    genre.add_item(music)
+    music = MusicAlbum.new(publish_date, on_spotify)
     @music_albums << music
-    @genre << genre unless @genre.include?(genre)
 
     puts
     puts 'Music album is created succussfully!'
@@ -49,32 +43,27 @@ module CreateItems
   end
 
   def create_book
-  print 'Book title: '
-  book_title = gets.chomp
+    print 'Published date: '
+    publish_date = gets.chomp
 
-  print 'Published date: '
-  publish_date = gets.chomp
-  
-  print 'Cover state: '
-  cover_state = gets.chomp
+    print 'Publisher name: '
+    publisher = gets.chomp
 
-  book = gets.chomp
-  @books << Book.new(book)
-  puts 'Book has been added successfully'
+    print 'Cover state: '
+    cover_state = gets.chomp
+
+    @books << Book.new(publish_date, publisher, cover_state)
+    puts 'Book has been added successfully'
   end
 
   def create_movie
-    print 'Movie title: '
-    movie_title = gets.chomp
-  
     print 'Published date: '
     publish_date = gets.chomp
-    
+
     print 'Silet: '
     silet = gets.chomp
-  
-    movie = gets.chomp
-    @movies << Movie.new(movie)
+
+    @movies << Movie.new(publish_date, silet)
     puts 'Movie has been added successfully'
-    end
+  end
 end
