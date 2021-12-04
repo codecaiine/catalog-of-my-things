@@ -15,4 +15,13 @@ class Genre
   def show_items
     @items
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'name' => @name,
+      'items' => @items
+    }.to_json(*args)
+  end
 end
