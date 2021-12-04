@@ -6,13 +6,15 @@ require './music_album'
 require './genre'
 require './create_items'
 require './display_items'
-require './json_handlers'
-
+require './items_json_handlers'
+require './display_associations'
+require './associations_json_handlers'
 class App
   include CreateItems
   include DisplayItems
   include JsonHandlers
-
+  include DisplayAssociations
+  include AssociationsJsonHandlers
   def initialize
     @books = []
     @music_albums = []
@@ -78,5 +80,16 @@ class App
     else
       create_genre
     end
+  end
+
+  def open_files
+    open_books
+    open_games
+    open_movies
+    open_music_albums
+    open_sources
+    open_authors
+    open_labels
+    open_genres
   end
 end

@@ -1,6 +1,5 @@
 require './app'
 
-# rubocop:disable Metrics
 def show_options
   puts 'Please choose an option by entering a number:'
   puts '1 -> List all books'
@@ -17,7 +16,6 @@ def show_options
   puts '12 -> Create a game'
   puts '13 -> Exit'
 end
-# rubocop:enable Metrics
 
 def print_options
   show_options
