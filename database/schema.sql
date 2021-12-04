@@ -86,4 +86,12 @@ CREATE TABLE author(
   PRIMARY KEY(id)
 );
 
+CREATE TABLE sources(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(255)
+  PRIMARY KEY(id)
+);
+
+
+
 

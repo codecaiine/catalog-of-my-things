@@ -44,25 +44,25 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Yannick-Noel AKA**
+👤 ***Yannick-Noel AKA***
 
 - Location: Côte d'Ivoire
 - GitHub: [@codecaiine](https://github.com/codecaiine)
 - Twitter: [@yannicknaka](https://twitter.com/yannicknaka)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/yannick-no%C3%ABl-aka/)
 
-👤 **Donard Golaj**
+👤 ***Donard Golaj***
 - Github : [@Donard97](https://github.com/Donard97)
 - Twitter: [@donardgolaj](https://twitter.com/donardgolaj)
 - LinkdIn : [@donard-golaj](https://www.linkedin.com/in/donard-golaj/)
 
-👤 **Ahmad Zia Yousufi**
+👤***Ahmad Zia Yousufi***
 - GitHub: [@ahzia](https://github.com/ahzia)
 - Twitter: [@ZiaYousofi](https://twitter.com/ZiaYousofi)
 - LinkedIn: [Ahmad zia Yousufi](https://www.linkedin.com/in/ah-ziayosfi/)
 
 
-👤 **Kossi Fioklou**
+👤***Kossi Fioklou***
 
 - Location: Togo
 - GitHub: [@Kossi-stack](https://github.com/kossi-stack)
